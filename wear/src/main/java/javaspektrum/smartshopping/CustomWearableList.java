@@ -190,15 +190,12 @@ public class CustomWearableList extends Activity implements
                 public void run() {
                     // Update UI views here..
                     ShoppingListItem shoppingListItem = new ShoppingListItem(id, name, bought);
-
                     shoppingPersistence.getShoppingListItems().add(shoppingListItem);
-
                     shoppingAdpater.notifyDataSetChanged();
                 }
             });
         }
     }
-
 
     private void loadAllShoppingItemsFromDataAPI() {
         shoppingPersistence.getShoppingListItems().clear();

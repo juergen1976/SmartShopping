@@ -17,7 +17,7 @@
         android:id="@+id/txtName"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:hint="Name"/>
+        android:hint="@string/name"/>
 
     <EditText
         android:layout_width="fill_parent"
@@ -25,12 +25,12 @@
         android:id="@+id/txtDescription"
         android:layout_below="@+id/txtName"
         android:layout_centerHorizontal="true"
-        android:hint="Description"/>
+        android:hint="@string/description"/>
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Create Task"
+        android:text="@string/NewEntry"
         android:id="@+id/btnCreate"
         android:layout_below="@+id/txtDescription"
         android:layout_centerHorizontal="true" />
@@ -38,7 +38,7 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Back"
+        android:text="@string/back"
         android:id="@+id/btnBack"
         android:layout_below="@+id/btnCreate"
         android:layout_centerHorizontal="true" />

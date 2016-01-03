@@ -3,4 +3,8 @@
     <string name="title_activity_update">update</string>
     <string name="title_activity_create">CreateActivity</string>
     <string name="createItem">Neuer Eintrag</string>
+    <string name="NewEntry">Neuer Eintrag</string>
+    <string name="back">Zurück</string>
+    <string name="description">Beschreibung</string>
+    <string name="name">Name</string>
 </resources>
