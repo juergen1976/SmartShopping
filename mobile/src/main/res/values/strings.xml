@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">SmartShopping</string>
+    <string name="title_activity_update">update</string>
+    <string name="title_activity_create">CreateActivity</string>
+    <string name="createItem">Neuer Eintrag</string>
+</resources>
