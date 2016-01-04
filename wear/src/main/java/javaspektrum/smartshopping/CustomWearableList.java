@@ -73,21 +73,21 @@ public class CustomWearableList extends Activity implements
                 public void onClick(WearableListView.ViewHolder viewHolder) {
                     int position = viewHolder.getLayoutPosition();
 
+                    // Update UI
                     TextView txtView = (TextView) viewHolder.itemView.findViewById(R.id.name);
                     txtView.setPaintFlags(txtView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-
                     CircledImageView circledView = (CircledImageView) viewHolder.itemView.findViewById(R.id.circle);
                     circledView.setImageResource(R.drawable.ic_action_done);
 
+                    // Update DataAPI
                     ShoppingListItem shoppingItem = shoppingPersistence.getShoppingListItems().get(position);
-
+                    shoppingItem.setBought(true);
                     PutDataMapRequest putDataMapRequest = PutDataMapRequest.create
-                            (DataStorageConstants.SHOPPING_PATH);
+                            (DataStorageConstants.SHOPPING_PATH + "/" + shoppingItem.getId());
                     putDataMapRequest.getDataMap().putLong(DataStorageConstants.SHOPPING_ITEM_ID,
                             shoppingItem.getId());
                     putDataMapRequest.getDataMap().putBoolean(DataStorageConstants
                             .SHOPPING_ITEM_BOUGHT, true);
-
                     PutDataRequest request = putDataMapRequest.asPutDataRequest();
                     if (!mGoogleApiClient.isConnected()) {
                         return;

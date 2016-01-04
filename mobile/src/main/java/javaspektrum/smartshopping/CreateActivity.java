@@ -76,9 +76,11 @@ public class CreateActivity extends AppCompatActivity implements
 
                     // Put the object into the DataAPI
                     PutDataMapRequest putDataMapRequest = PutDataMapRequest.create
-                            (DataStorageConstants.SHOPPING_PATH);
+                            (DataStorageConstants.SHOPPING_PATH + "/"  + newID);
                     putDataMapRequest.getDataMap().putLong(DataStorageConstants.SHOPPING_ITEM_ID, newID);
                     putDataMapRequest.getDataMap().putString(DataStorageConstants.SHOPPING_ITEM_NAME, name);
+                    putDataMapRequest.getDataMap().putBoolean(DataStorageConstants
+                            .SHOPPING_ITEM_BOUGHT, false);
 
                     PutDataRequest request = putDataMapRequest.asPutDataRequest();
                     if (!mGoogleApiClient.isConnected()) {

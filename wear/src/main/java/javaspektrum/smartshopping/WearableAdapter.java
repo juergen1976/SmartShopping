@@ -2,6 +2,7 @@ package javaspektrum.smartshopping;
 
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.support.wearable.view.CircledImageView;
 import android.support.wearable.view.WearableListView;
 import android.view.LayoutInflater;
@@ -26,17 +27,27 @@ public class WearableAdapter extends WearableListView.Adapter {
     @Override
     public WearableListView.ViewHolder onCreateViewHolder(
             ViewGroup viewGroup, int i) {
-        return new ItemViewHolder(mInflater.inflate(javaspektrum.smartshopping.R.layout.list_item,
-                null));
+        return new ItemViewHolder(mInflater.inflate(javaspektrum.smartshopping.R.layout.list_item, null));
     }
 
     @Override
     public void onBindViewHolder(WearableListView.ViewHolder viewHolder, int position) {
+        ShoppingListItem shopItem = mItems.get(position);
+
+        // Create UI according actual Shopping Item state
         ItemViewHolder itemViewHolder = (ItemViewHolder) viewHolder;
-        CircledImageView circledView = itemViewHolder.mCircledImageView;
-        circledView.setImageResource(R.drawable.ic_action_send);
         TextView textView = itemViewHolder.mItemTextView;
-        textView.setText(String.format(mItems.get(position).getName()));
+        textView.setText(shopItem.getName());
+        CircledImageView circledView = itemViewHolder.mCircledImageView;
+
+        // Set item according bought state
+        if (shopItem.isBought()) {
+            circledView.setImageResource(R.drawable.ic_action_done);
+            textView.setPaintFlags(textView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        }
+        else {
+            circledView.setImageResource(R.drawable.ic_action_send);
+        }
     }
 
     @Override
