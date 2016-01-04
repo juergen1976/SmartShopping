@@ -46,7 +46,7 @@ public class WearableAdapter extends WearableListView.Adapter {
             textView.setPaintFlags(textView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         }
         else {
-            circledView.setImageResource(R.drawable.ic_action_send);
+            circledView.setImageResource(R.drawable.shop);
         }
     }
 
