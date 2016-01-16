@@ -73,12 +73,16 @@ public class ListActivity extends AppCompatActivity implements
                 ListView lv = (ListView) view;
                 TextView row = (TextView)lv.getItemAtPosition(position);
                 row.setPaintFlags(row.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+
+                // TODO: update over DATA API to inform wearable
             }
         });
     }
 
     @Override
     public void onDataChanged(DataEventBuffer dataEvents) {
+        // TODO: update list item => new message from wearable
+
     }
 
     @Override
