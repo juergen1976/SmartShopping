@@ -64,6 +64,8 @@ public class CustomWearableList extends Activity implements
         wearableListView.setAdapter(this.shoppingAdpater);
         wearableListView.setClickListener(mClickListener);
         wearableListView.addOnScrollListener(mOnScrollListener);
+
+        mGoogleApiClient.connect();
     }
 
     // Handle our Wearable List's click events
@@ -152,11 +154,11 @@ public class CustomWearableList extends Activity implements
     public void onConnected(Bundle connectionHint) {
         mResolvingError = false;
         Wearable.DataApi.addListener(mGoogleApiClient, this);
-        loadAllShoppingItemsFromDataAPI();
+
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                shoppingAdpater.notifyDataSetChanged();
+                loadAllShoppingItemsFromDataAPI();
             }
         });
     }
@@ -217,6 +219,7 @@ public class CustomWearableList extends Activity implements
                                 shoppingPersistence.getShoppingListItems().add(shopItem);
                             }
                             result.release();
+                            shoppingAdpater.notifyDataSetChanged();
                         }
                     }
                 });
